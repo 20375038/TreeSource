@@ -1,0 +1,70 @@
+
+[ ARをUnityに実装するために ]
+
+1.	「package」フォルダを展開して任意の場所に保存する
+	※工藤が渡します
+
+2.	Unityで新規3Dプロジェクトを作成する
+	新規作成の右側にある下三角から2020.3バージョンを選ぶ
+
+3.	File > Build Settings
+	Platformを「Android」に変更してSwitch Platformを押す
+
+4.	Windows > Package Manager
+	左上の＋ボタン > Add package from git URL
+	「com.unity.xr.arcore」
+	「com.unity.xr.arfoundation」
+	「com.unity.xr.management」
+	下記3つを入力してインストールする
+
+5.	左上の＋ボタン > Add package from disk
+	packageフォルダー内の「package.json」を選択、インストール
+
+6.	Edit > Project Settings > Player > Other Settings
+	Graphics APIsの「Vulkan」を選択して － を押す
+
+7.	Other Settings
+	「Multithreaded Rendering」チェックを外す
+
+8.	Other Settings
+		Minimum API Level	を「Android 7.0 'Nougat'」に、
+		Target API Level	を「Automatic」に変更
+
+9.	Other Settings
+	Scripting Backendを「IL2CPP」に変更
+
+10.	Other Settings > Target Architectures
+	「ARM64」チェックを入れる
+
+11. ヒエラルキービューの＋から
+	XR >「AR Session Origin」
+		「AR Session」
+	を追加する
+
+12.	Edit > ProjectSettings > XR Plug-in Management
+	Plug-in Providers
+	「ARCore」にチェックを入れる
+
+13.	XR Plug-in Management の下の ARCore
+	Requirement、Depthを「Optional」に変更
+
+14. MainCameraを削除する
+
+15.	スマホを繋いでBuild And Runをする
+
+	おわり
+
+
+/*----------------------------------------------------
+	下記のWarningが出た場合の対処法
+
+			File C:\Users\(ユーザー名)\.android
+			\repositories.cfg could not be loaded.
+------------------------------------------------------*/
+
+16.	C:\Users\(ユーザー名)\.androidの中に
+
+	「repositories.cfg」を展開して入れる。
+	※工藤が渡します
+
+
